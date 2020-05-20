@@ -1,5 +1,6 @@
 # nginx-fail2ban-firewall
-A simple one liner firewall that blocks bad bots trying to login to wordpress. Check 'More details' link for using in other scenarios. 
+A simple one liner firewall that blocks bad bots trying to login to any resource behind nginx. \
+This example is for using with WordPress. Check 'More details' link for using in other scenarios. 
 
 ## The line:
 
