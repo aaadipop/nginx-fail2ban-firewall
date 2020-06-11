@@ -11,7 +11,7 @@ This example is for using with WordPress. Check 'More details' link for using in
 
 ## Wrapped to crontab:
 cat /nginx_fail2ban_firewall.sh \
-```awk '{ if($9 ~ "wp-login" && int($10) == 200 && $8 == "POST" && int($7) == 443) print $1, $6, $9, $10}' /var/log/nginx/access.log | sort -k1 -k2 | uniq -c | awk 'int($1) > 10 {print $2}' | grep -P '^\d{1,3}(\.\d{1,3}){3}\s' |  while read line; do fail2ban-client set nginx-http-auth banip "$line"; done```
+```awk '{ if($9 ~ "wp-login" && int($10) == 200 && $8 == "POST" && int($7) == 443) print $1, $6, $9, $10}' /var/log/nginx/access.log | sort -k1 -k2 | uniq -c | awk 'int($1) > 10 {print $2}' | while read line; do fail2ban-client set nginx-http-auth banip "$line"; done```
 
 cat /etc/crontab \
 ```* * * * * root /root/nginx_fail2ban_firewall.sh >> /dev/null 2>&1```
